@@ -9,7 +9,7 @@ variable "AWS_DEFAULT_REGION" {
 }
 variable "LOG_GROUP_RETENTION_DAYS" {
   type    = number
-  default = 9
+  default = 7
 }
 
 variable "AWS_ACCESS_KEY_ID" {
