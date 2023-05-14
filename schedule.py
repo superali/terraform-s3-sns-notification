@@ -11,22 +11,29 @@ topic_arn=os.environ.get('topic_arn')
 clients=['client1','client2','client3']
 
        
-s3 = boto3.connect_s3()
+# s3 = boto3.connect_s3()
 sns = boto3.client('sns')
+from datetime import datetime, timezone
+
+today = datetime.now(timezone.utc).date()
+
+s3 = boto3.client('s3', region_name=region)
 
 
-def getFileUpdateDate(client):
+        
+        
+
+def getFileUpdateDate(client,file_name):
     name=None
     last_modified=None
-    file_name=f'{client}/{file_name}'
-    bucket=s3.lookup(bucket_name)
-    for key in bucket:
-        last_modified=key.last_modified
-        name=key.name
-        if name==file_name:
-            return last_modified
-    return None
+    file_path=f'{client}/{file_name}'
     
+    objects = s3.list_objects_v2(Bucket=bucket_name,Prefix=file_path)
+    
+    if len(objects["Contents"])==0: 
+        return None
+    return objects["Contents"][0].get('LastModified').date()
+
 def sendAlrm(client):
     sns.publish(
     TopicArn=topic_arn,
@@ -36,11 +43,12 @@ def sendAlrm(client):
 
 def lambda_handler(event, context):
     for client in clients:
-        current_date =""
-        update_date=getFileUpdateDate(client)
-        if current_date !=update_date :
+        update_date=getFileUpdateDate(client,file_name)
+        if update_date is None or today ==update_date :
             print(f"backup window missed for {client}")
             sendAlrm(client)
+        else:
+            print(f"backup succeeded for {client}")
         
     
     
