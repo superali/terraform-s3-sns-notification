@@ -1,8 +1,8 @@
 ## ---------------------------------------------------------------------------------------------------------------------
 ## BACKUP NOTIFICATION SYSTEM
-## This project create a workflow that send email notification if at least one client backup file is not updated daily 
+## This project creates a workflow that send email notification if at least one client backup file is not updated daily 
 ## This project contains the following component:
-## sns topic : it sends emails to pre-defined subsciber
+## sns topic : it sends emails to a pre-defined subsciber
 ## lambda function : it checks backup file last update date on s3 and invoke sns topic accordingly
 ## event bridge : it invokes lambda function every day at 11:30 pm
 ## cloud watch : it stores logs from lambda function
