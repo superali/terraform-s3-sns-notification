@@ -1,6 +1,6 @@
-variable "SNS_EMAILS" {
+variable "SNS_EMAIL" {
   type        = string
-  description = "comma separated emails"
+  description = "alarm email"
 }
 variable "AWS_DEFAULT_REGION" {
   type = string
