@@ -51,5 +51,10 @@ resource "aws_iam_role_policy_attachment" "schedule-AmazonS3FullAccess" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   role       = aws_iam_role.schedule.name
 }
+resource "aws_iam_role_policy_attachment" "schedule-AmazonSNSFullAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSNSFullAccess"
+  role       = aws_iam_role.schedule.name
+}
+
 
 
