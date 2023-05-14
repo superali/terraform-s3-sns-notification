@@ -1,4 +1,4 @@
- data "archive_file" "schedule" {
+data "archive_file" "schedule" {
   type        = "zip"
   source_file = "schedule.py"
   output_path = "schedule.zip"
@@ -16,15 +16,15 @@ resource "aws_lambda_function" "schedule" {
 
   environment {
     variables = {
-      region        = var.AWS_DEFAULT_REGION
-      file_name        = var.BACKUP_FILE_NAME
-      bucket_name        = aws_s3_bucket.backup.bucket
-      topic_arn        = aws_sns_topic.alarm_sns.arn
+      region      = var.AWS_DEFAULT_REGION
+      file_name   = var.BACKUP_FILE_NAME
+      bucket_name = aws_s3_bucket.backup.bucket
+      topic_arn   = aws_sns_topic.alarm_sns.arn
     }
   }
 
 
- 
+
   depends_on = [
     aws_iam_role_policy_attachment.schedule-AmazonS3FullAccess,
     aws_iam_role_policy_attachment.schedule_logging,

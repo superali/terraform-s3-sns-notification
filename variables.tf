@@ -1,3 +1,8 @@
+## ---------------------------------------------------------------------------------------------------------------------
+## ENVIRONMENT VARIABLES
+## Define these variables as environment variables
+## ---------------------------------------------------------------------------------------------------------------------
+
 variable "SNS_EMAIL" {
   type        = string
   description = "alarm email"
@@ -21,7 +26,7 @@ variable "AWS_SECRET_ACCESS_KEY" {
 
 }
 variable "BACKUP_FILE_NAME" {
-  type = string
+  type    = string
   default = "backup.sql"
 
 }

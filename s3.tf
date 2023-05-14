@@ -12,7 +12,7 @@ resource "null_resource" "generate_backup" {
       BACKUP_BROADCAST_DRIVER   = "log"
       BACKUP_AWS_DEFAULT_REGION = var.AWS_DEFAULT_REGION
       BACKUP_AWS_BUCKET         = aws_s3_bucket.backup.bucket
-      BACKUP_FILE_NAME          =var.BACKUP_FILE_NAME
+      BACKUP_FILE_NAME          = var.BACKUP_FILE_NAME
     }
   }
   triggers = {
