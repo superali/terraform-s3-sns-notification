@@ -19,9 +19,7 @@ resource "aws_lambda_function" "schedule" {
       region        = var.AWS_DEFAULT_REGION
       file_name        = var.BACKUP_FILE_NAME
       bucket_name        = aws_s3_bucket.backup.bucket
-
-      
-
+      topic_arn        = aws_sns_topic.alarm_sns.arn
     }
   }
 
