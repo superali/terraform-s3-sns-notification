@@ -48,7 +48,7 @@ No modules.
 | <a name="input_AWS_SECRET_ACCESS_KEY"></a> [AWS\_SECRET\_ACCESS\_KEY](#input\_AWS\_SECRET\_ACCESS\_KEY) | n/a | `string` | n/a | yes |
 | <a name="input_BACKUP_FILE_NAME"></a> [BACKUP\_FILE\_NAME](#input\_BACKUP\_FILE\_NAME) | n/a | `string` | `"backup.sql"` | no |
 | <a name="input_LOG_GROUP_RETENTION_DAYS"></a> [LOG\_GROUP\_RETENTION\_DAYS](#input\_LOG\_GROUP\_RETENTION\_DAYS) | n/a | `number` | `7` | no |
-| <a name="input_SNS_EMAILS"></a> [SNS\_EMAILS](#input\_SNS\_EMAILS) | comma separated emails | `string` | n/a | yes |
+| <a name="input_SNS_EMAIL"></a> [SNS\_EMAIL](#input\_SNS\_EMAIL) | alarm email | `string` | n/a | yes |
 
 ## Outputs
 
