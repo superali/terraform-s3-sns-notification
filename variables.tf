@@ -3,7 +3,10 @@
 ## Define these variables as environment variables
 ## ---------------------------------------------------------------------------------------------------------------------
 
-
+variable "SNS_EMAIL" {
+  type        = string
+  description = "alarm email"
+}
 variable "AWS_DEFAULT_REGION" {
   type = string
 
